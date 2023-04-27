@@ -1,0 +1,60 @@
+<div class="row ">
+  <div class="col-md-4 d-flex align-items-center">
+    <div>
+      <div class="brdr w-25 mb-3"></div>
+      <h2 class="h3">Trending <br> Movies <br> Right Now</h2>
+      <p class="text-muted">Most Watched Movies By Week</p>
+      <div class="brdr w-100 mt-3"></div>
+    </div>
+  </div>
+  <div *ngFor="let item of trendingMovies" class="col-md-2">
+    <a [routerLink]="['/details' , item.id , item.media_type]">
+      <div class="position-relative">
+        <img [src]="'https://image.tmdb.org/t/p/w500'+item.poster_path" class="w-100" alt="">
+        <h3 class="h5">{{item.title}}</h3>
+        <div class="vote top-0 end-0 position-absolute p-1">{{item.vote_average.toFixed(1)}}</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="row py-5">
+  <div class="col-md-4 d-flex align-items-center">
+    <div>
+      <div class="brdr w-25 mb-3"></div>
+      <h2 class="h3">Trending <br> Tv <br> Right Now</h2>
+      <p class="text-muted">Most Watched Tv By Week</p>
+      <div class="brdr w-100 mt-3"></div>
+    </div>
+  </div>
+  <div *ngFor="let item of trendingTv" class="col-md-2">
+    <a [routerLink]="['/details' , item.id , item.media_type]">
+
+      <div class="position-relative">
+        <img [src]="'https://image.tmdb.org/t/p/w500'+item.poster_path" class="w-100" alt="">
+        <h3 class="h5">{{item.name}}</h3>
+        <div class="vote top-0 end-0 position-absolute p-1">{{item.vote_average.toFixed(1)}}</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="row ">
+  <div class="col-md-4 d-flex align-items-center">
+    <div>
+      <div class="brdr w-25 mb-3"></div>
+      <h2 class="h3">Trending <br> People <br> Right Now</h2>
+      <p class="text-muted">Most Watched People By Week</p>
+      <div class="brdr w-100 mt-3"></div>
+    </div>
+  </div>
+  <div *ngFor="let item of trendingPeople" class="col-md-2">
+    <a [routerLink]="['/details' , item.id , item.media_type]">
+
+      <div class="position-relative">
+        <img [src]="'https://image.tmdb.org/t/p/w500'+item.profile_path" class="w-100" alt="">
+        <h3 class="h5">{{item.name}}</h3>
+      </div>
+    </a>
+  </div>
+</div>

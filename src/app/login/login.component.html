@@ -1,0 +1,26 @@
+<div class="w-75 mx-auto py-4">
+  <h3>login Now </h3>
+  <form (ngSubmit)="submitlogin(loginForm)" [formGroup]="loginForm">
+    <div *ngIf="apiError" class="alert alert-danger">{{apiError}}</div>
+
+    <label for="email">email</label>
+    <input formControlName="email" id="email" class="form-control my-2" type="email">
+    <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="alert alert-danger">
+      <div *ngIf="loginForm.get('email')?.getError('required')"> email is required</div>
+      <div *ngIf="loginForm.get('email')?.getError('email')">email invalid</div>
+    </div>
+
+    <label for="password">password</label>
+    <input formControlName="password" id="password" class="form-control my-2" type="password">
+    <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="alert alert-danger">
+      <div *ngIf="loginForm.get('password')?.getError('required')"> password is required</div>
+      <div *ngIf="loginForm.get('password')?.getError('pattern')"> password must starts with capital letter</div>
+    </div>
+
+    <button type="submit" class="btn btn-info">
+      <i *ngIf="isloading" class="fas fa-spinner fa-spin" ></i>
+      <span *ngIf="!isloading">login</span>
+    </button>
+
+  </form>
+</div>

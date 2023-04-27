@@ -1,0 +1,12 @@
+<div class="row">
+  <h2 class="py-2"> Trending movies</h2>
+  <div *ngFor="let item of Movies" class="col-md-3">
+    <a [routerLink]="['/details' , item.id , item.media_type]">
+      <div class="position-relative">
+        <img [src]="'https://image.tmdb.org/t/p/w500'+item.poster_path" class="w-100" alt="">
+        <h3 class="h5">{{item.title}}</h3>
+        <div class="vote top-0 end-0 position-absolute p-1">{{item.vote_average.toFixed(1)}}</div>
+      </div>
+    </a>
+  </div>
+</div>
